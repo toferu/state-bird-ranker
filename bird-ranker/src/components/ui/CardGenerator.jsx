@@ -5,21 +5,21 @@ import stateBirds from "../entities/stateBirds";
 const CardGenerator = () => {
     const birds = stateBirds;
     return (
-        <div className="w-screen h-fill flex flex-col items-center ">
+        <div className="w-screen flex flex-col items-center space-y-4 my-12">
             {
                 birds.map((birb, key) => {
                     return (
-                        <Card>
+                        <Card bgColor={key} key={key}>
                             <Card.Image source={`${birb.image}`} />
-                            <div className="space-y-2 px-4 py-0.5 justify-between">
+                            <Card.Body>
                                 <Card.Header
                                     index={key +1}
                                     bird={`${birb.name}`}
                                     state={`${birb.state}`} />
-                                <Card.Body
+                                <Card.Text
                                     pro={`${birb.pro}`}
                                     con={`${birb.con}`} />
-                            </div>
+                            </Card.Body>
                         </Card>
                     )
                 })
